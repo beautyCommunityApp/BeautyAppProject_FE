@@ -1,0 +1,37 @@
+.banner-slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .banner-slide {
+    position: relative;
+    width: 100%;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    color: white;
+    font-weight: bold;
+    white-space: pre-line; /* 줄바꿈 유지 */
+  }
+  
+  .banner-text {
+    font-size: 16px;
+  }
+  
+  .swiper-pagination-bullets {
+    bottom: 10px !important;
+  }
+  

@@ -1,0 +1,62 @@
+.subscription-container {
+    padding: 24px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* 성별 버튼 */
+  .gender-group {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .gender-group button {
+    flex: 1;
+    padding: 12px 0;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .gender-group .selected {
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+  }
+  
+  /* 셀렉트 박스 공통 */
+  select, .full-width {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+  }
+  .month-day-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  
+  .month-day-container select {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+  }
+  

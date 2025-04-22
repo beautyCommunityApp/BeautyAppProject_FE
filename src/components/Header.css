@@ -1,0 +1,25 @@
+/* src/components/Header/Header.css */
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 16px;
+    position: relative;
+    /* border-bottom: 1px solid #eee; */
+  }
+  
+  .header-close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-weight: bold;
+  }
+  

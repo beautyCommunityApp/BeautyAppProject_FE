@@ -1,0 +1,94 @@
+
+
+/* 전체 온보딩 화면을 감싸는 컨테이너 */
+.onboarding-wrapper {
+    max-width: 800px; /* 최대 너비 제한 (큰 화면에서 너무 넓어지는 걸 방지) */
+    margin: 0 auto; /* 가운데 정렬 */
+    height: 100vh; /* 전체 화면 높이를 사용 */
+    display: flex; /* 상하 구조를 위해 flex 사용 */
+    flex-direction: column; /* 세로 방향으로 정렬 */
+    background-color: #fcdde2; /* 배경 핑크 컬러 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 외곽 그림자 */
+  }
+  
+  /* 상단 이미지 영역 */
+  .onboarding-top {
+    height: 70vh; /* 화면 높이의 70%를 차지 */
+    display: flex; /* 이미지 가운데 정렬을 위한 flex 설정 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    overflow: hidden; /* 이미지 넘칠 경우 잘라냄 */
+  }
+  
+  /* 실제 이미지 스타일 */
+  .onboarding-image {
+    width: 100%; /* 너비 100%로 설정 */
+    height: 100%; /* 높이도 부모 요소 채우기 */
+    object-fit: cover; /* 비율 유지하며 영역 꽉 채우기 */
+  }
+  
+  /* 하단 콘텐츠 영역 */
+  .onboarding-bottom {
+    height: 30vh; /* 화면 높이의 30% */
+    background-color: white; /* 흰 배경 */
+    padding: 30px 24px; /* 내부 여백 */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* 위쪽 그림자 */
+  }
+  
+  /* 텍스트 컨텐츠 정렬 */
+  .onboarding-content {
+    text-align: left; /* 중앙 정렬 */
+  }
+  
+  /* 제목 스타일 */
+  .onboarding-content h2 {
+    font-size: 20px; /* 글자 크기 */
+    margin-bottom: 12px; /* 아래 여백 */
+    font-weight: 600; /* 약간 굵게 */
+    color: #222; /* 진한 회색 */
+  }
+  
+  /* 설명 텍스트 스타일 */
+  .onboarding-content p {
+    white-space: pre-line; /* 줄바꿈 허용 */
+    font-size: 14px; /* 작은 본문 글자 크기 */
+    color: #555; /* 회색 */
+    margin-bottom: 20px; /* 아래 여백 */
+  }
+  
+  /* 페이지 인디케이터 점(dot)들을 감싸는 컨테이너 */
+  .onboarding-indicator {
+    display: flex; /* 가로로 나열 */
+    justify-content: center; /* 중앙 정렬 */
+    gap: 8px; /* 점(dot) 사이 간격 */
+    margin-bottom: 20px; /* 아래 여백 */
+  }
+  
+  /* 기본 점(dot) 스타일 */
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%; /* 동그랗게 */
+    background-color: #ccc; /* 회색 점 */
+    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+  }
+  
+  /* 현재 페이지를 나타내는 활성 점 */
+  .dot.active {
+    background-color: #ff6f91; /* 핑크색 */
+    width: 16px; /* 활성화된 점은 길쭉하게 */
+  }
+  
+  /* 하단 버튼 스타일 */
+  .onboarding-button {
+    width: 100%; /* 버튼 전체 너비 */
+    padding: 14px 0; /* 위아래 여백 */
+    background-color: #ff6f91; /* 버튼 배경색 */
+    color: white; /* 글자색 */
+    font-weight: bold; /* 굵은 글씨 */
+    font-size: 16px; /* 글자 크기 */
+    border: none; /* 테두리 없음 */
+    border-radius: 12px; /* 둥근 버튼 */
+    cursor: pointer; /* 마우스 오버시 커서 변경 */
+  }
+  
