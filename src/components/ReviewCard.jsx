@@ -12,6 +12,7 @@ function ReviewCard({ user, product, content, date, onLike }) {
         user: { image: "/images/user1.png", nickname: `유저${i+1}`, age: 20+i, skin: "복합성", gender: "여" },
         product: "테스트 제품",
         content: {
+          
           title: `제목${i+1}`,
           body: "리뷰 본문입니다. 샘플 텍스트.",
           likes: 3 + i

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./../Product/WriteReview.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import DetailImg from "../../assets/images/review1.png";
 
 function WriteReview() {
     const { id } = useParams();
@@ -11,17 +12,38 @@ function WriteReview() {
     const [star, setStar] = useState(0);
     const [content, setContent] = useState("");
     const [oneLineReview, setOneLineReview] = useState("");
+  // ✅ 제품 정보 상태 추가
+  const [product, setProduct] = useState(null);
+
+  // ✅ 제품 정보 fetch
+  useEffect(() => {
+    if (process.env.NODE_ENV === "development") {
+      setProduct({
+        imageUrl: DetailImg,
+        name: "블루 아가베 포어 에센스 토너",
+        brand: "다자연",
+      });
+      return;
+    }
   
+    fetch(`/app/api/cosmetics/${id}`)
+      .then(res => res.json())
+      .then(data => setProduct(data.result))
+      .catch(console.error);
+  }, [id]);
+
     const handleSubmit = () => {
       if (!star || content.length < 20 || !oneLineReview.trim()) {
         alert("모든 항목을 정확히 입력해주세요.");
         return;
       }
+      
   //개발 테스트 시에는 process.env.NODE_ENV === "development" 분기 처리로 서버 요청 없이도 동작 확인 가능!
       // ✅ 개발 환경에서는 fetch 생략하고 이동만
       if (process.env.NODE_ENV === "development") {
         console.log("💡 로컬 테스트용 리뷰 등록 완료!");
         alert("여기 💡 로컬 테스트용 리뷰 등록 완료!");
+        alert(`/app/api/cosmetics/${id}`);
         navigate(`/product/${id}/reviews`);
         return;
       }
@@ -56,14 +78,26 @@ function WriteReview() {
     };
   
     return (
+      <div>
       <div className="write-review-page">
         <Header title="리뷰 작성" prevPath={`/product/${id}`} />
   
+      <div className="writeGap">
         <div className="review-box">
-          <h4>블루 아가베 포어 에센스 토너</h4>
-          <p className="brand-name">다자연</p>
+          {/* <h4>블루 아가베 포어 에센스 토너</h4>
+          <p className="brand-name">다자연</p> */}
+          <div className="product-infow">
+          <img src={product?.imageUrl} alt="제품 이미지" />
+          <div className="product-detailsw">
+          <h4>{product?.name || "제품명 로딩 중..."}</h4>
+          <p className="brand-name">{product?.brand || "브랜드명 로딩 중..."}</p>
+          </div>
+          </div>
+          {/* <img src={product.imageUrl} alt="제품 이미지" className="product-image" /> */}
+        
         </div>
-  
+      
+      <div className="sectionGap">
         <p className="section-title">평점을 선택해 주세요.</p>
         <div className="star-rating-st">
           {[1, 2, 3, 4, 5].map((num) => (
@@ -78,6 +112,7 @@ function WriteReview() {
         </div>
   
         <p className="section-title">리뷰를 작성해 주세요.</p>
+        </div>
         <textarea
           placeholder="최소 20자 이상 입력해주세요."
           value={content}
@@ -105,9 +140,15 @@ function WriteReview() {
         >
           리뷰 등록하기
         </button>
-  
-        <Footer />
+
+        </div>
+
+    
+     
       </div>
+      <Footer/>
+      </div>
+        
     );
   }
   

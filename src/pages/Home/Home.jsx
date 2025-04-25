@@ -4,6 +4,8 @@ import "./../Home/Home.css";
 import ReviewCard from "../../components/ReviewCard";
 import Footer from '../../components/Footer';
 import review from "../../assets/images/review1.png";
+import profileImageUrl from "../../assets/images/profileImageUrl.png";
+import searchIconImg from "../../assets/images/searchIcon.png";
 import bannerImg from "../../assets/images/banner.png";
 
 import BannerSlider from "../../components/BannerSlider";
@@ -13,7 +15,7 @@ import axios from "axios";
 const sampleData = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   user: {
-    image: "images/user1.png",
+    image: profileImageUrl,
     nickname: `유저${i + 1}`,
     age: 20 + i,
     skin: "복합성",
@@ -82,7 +84,9 @@ function Home() {
       <header className="main-banner-section">
         <div className="logo-row">
           <h1 className="logo">BeautemTalk</h1>
-          <span className="search-icon">🔍</span>
+          {/* <span className="search-icon">🔍</span> */}
+          <div className="search-icon">
+            <img src ={searchIconImg} onClick={() => alert("검색 예정!")}/></div>
         </div>
         <BannerSlider />
         <div className="review-section-header" onClick={() => console.log("리뷰 클릭")}>

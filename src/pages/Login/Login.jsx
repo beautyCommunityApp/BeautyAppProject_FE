@@ -12,6 +12,10 @@ import googleImg from "../../assets/images/google.png";
 import naverImg from "../../assets/images/naver.png";
 import kakaoImg from "../../assets/images/kakaotalk.png";
 
+import googleBarImg from "../../assets/images/googleBar.png";
+import naverBarImg from "../../assets/images/naverBar.png";
+import kakaoBarImg from "../../assets/images/kakaotalkBar.png";
+
 
 function Login() {
         
@@ -276,18 +280,18 @@ const handleNaverLogin = () => {
         <h1 className="login-title">BeautemTalk</h1>
 
         {/* 이메일 / 비밀번호 입력창 */}
-        <input type="text" placeholder="이메일을 입력해주세요." className="login-input" />
-        <input type="password" placeholder="비밀번호를 입력해주세요." className="login-input" />
+        {/* <input type="text" placeholder="이메일을 입력해주세요." className="login-input" />
+        <input type="password" placeholder="비밀번호를 입력해주세요." className="login-input" /> */}
 
         {/* 이메일 로그인 버튼 */}
-        <button className="login-button" onClick={handleLogin}>이메일 로그인</button>
+        {/* <button className="login-button" onClick={handleLogin}>이메일 로그인</button> */}
 
         {/* 하단 링크 */}
-        <div className="login-links">
+        {/* <div className="login-links">
           <span>비밀번호 찾기</span>
           <span>|</span>
           <span>회원가입</span>
-        </div>
+        </div> */}
 
         {/* 구분선 */}
         <div className="divider" />
@@ -296,42 +300,21 @@ const handleNaverLogin = () => {
         <p className="sns-text">SNS 간편 로그인</p>
 
         {/* SNS 로그인 버튼들 */}
-        <div className="sns-buttons">
+        {/* <div className="sns-buttons">
+          <img src={googleImg} alt="Google"   className="sns-icon" onClick={handleGoogleLogin} />
+          <img src={naverImg} alt="Naver" className="sns-icon"  onClick={handleNaverLogin} />
+          <img src={kakaoImg} alt="Kakao" onClick={handleKakaoLogin} /> 
+        </div> */}
+        
 
-          {/* <div id="google-login-btn" /> */}
-
-          {/* <div id="naverIdLogin" />       네이버 로그인 버튼 영역 */}
-       
-
-
-
-  <img 
-    src={googleImg} 
-    alt="Google" 
-    className="sns-icon" 
-    onClick={handleGoogleLogin}
-  />
-  
-  <img 
-    src={naverImg} 
-    alt="Naver" 
-    className="sns-icon" 
-    onClick={handleNaverLogin}
-  />
-
-
-{/* 네이버 로그인 아이콘 버튼 */}
-{/* <img 
-  src={naverImg} 
-  alt="Naver" 
-  className="sns-icon" 
-  onClick={handleNaverLogin}
-/> */}
-
-
-          <img src={kakaoImg} alt="Kakao" onClick={handleKakaoLogin} /> {/* 카카오 로그인 아이콘 */}
-        </div>
+          {/* SNS 로그인 바 버튼들 */}
+        <div className="sns-buttonsBar">
+      <img src={googleBarImg} alt="Google"  className="sns-icons" onClick={handleGoogleLogin}/>
+      <img src={naverBarImg}  alt="Naver"  className="sns-icons"   onClick={handleNaverLogin}/>
+      <img src={kakaoBarImg}   className="sns-icons"  alt="Kakao" onClick={handleKakaoLogin} />
       </div>
+
+       </div>
     </div>
 
     </div>

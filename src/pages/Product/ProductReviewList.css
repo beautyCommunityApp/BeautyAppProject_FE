@@ -75,7 +75,11 @@
   
   .review-summary {
     margin-bottom: 20px;
+    /* border: 1px solid red; */
+     /* 디버깅용 */
   }
+
+  
   
   .review-average {
     display: flex;
@@ -83,6 +87,7 @@
     gap: 12px;
     font-size: 24px;
     font-weight: bold;
+    color: #111; /* 추가 */
   }
   
   .score {
@@ -96,6 +101,8 @@
   
   .star-bars {
     margin-top: 10px;
+    flex: 1;
+   
   }
   
   .star-row {
@@ -103,26 +110,46 @@
     align-items: center;
     gap: 10px;
     margin: 4px 0;
+
+
+    /* border: 1px dashed blue;  */
+
+    /* 별점 줄 */
   }
   
-  .star-label {
-    width: 30px;
-    font-size: 14px;
-  }
+  
   
   .bar-container {
+    
     flex: 1;
     height: 6px;
     background-color: #eee;
     border-radius: 4px;
     overflow: hidden;
+     /* border: 1px dashed green;  */
+     /* 별점 줄 */
+    /* width: 200px;  */
+     /* ← 임시 고정 */
   }
   
-  .bar {
+ 
+  .star-label {
+    width: 30px;
+    font-size: 14px;
+  }
+  /* .bar {
     height: 100%;
     background-color: #f66;
     transition: width 0.3s;
+  } */
+
+  .bar {
+    height: 100%;
+    background-color: #ff3d57; /* 더 또렷한 핑크 */
+    transition: width 0.3s;
   }
+
+  
   
   .star-count {
     width: 20px;
@@ -137,10 +164,12 @@
   /* 실제 사용하는 하단 버튼 */
   .review-write-bottom {
     margin: 32px 16px 48px;
+    display: flex;        /* 요소들을 가로 정렬 */
+    align-items: center;  /* 수직 중앙 정렬 */
   }
   
   .review-write-bottom button {
-    width: 100%;
+    width: 50%;
     background-color: #ff3d57;
     color: white;
     font-size: 16px;
@@ -151,3 +180,15 @@
     cursor: pointer;
   }
   
+
+  .review-write-bottom img {
+    margin-left: auto;    /* 가능한 공간을 모두 왼쪽으로 밀어서 이미지 우측 정렬 */
+    width: 24px;          /* 필요시 크기 조절 */
+    height: 24px;
+  }
+  .score {
+    color: #ff3d57; /* 예쁜 핑크 컬러로 강조 */
+  }
+  .percent {
+    color: #888;
+  }

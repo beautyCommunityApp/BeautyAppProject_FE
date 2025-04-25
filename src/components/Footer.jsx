@@ -15,18 +15,18 @@ function Footer() {
 const navigate = useNavigate();
 
 const menus = [
-  { img: footer1, label: "홈", path: "/home" },
-  { img: footer2, label: "아티클", path: "/article" },
-  { img: footer3, label: "이벤트", path: "/event" },
-  { img: footer4, label: "Q&A", path: "/qna" },
-  { img: footer5, label: "마이페이지", path: "/mypage" },
+  { img: footer1,  path: "/home" },
+  { img: footer2,  path: "/article" },
+  { img: footer3,  path: "/event" },
+  { img: footer4, path: "/qna" },
+  { img: footer5,  path: "/mypage" },
 ];
 // const menus = [
-//   { img: footer1, label: "홈" },
-//   { img: footer2, label: "아티클" },
-//   { img: footer3, label: "이벤트" },
-//   { img: footer4, label: "Q&A" },
-//   { img: footer5, label: "마이페이지" },
+//   { img: footer1, label: "홈", path: "/home" },
+//   { img: footer2, label: "아티클", path: "/article" },
+//   { img: footer3, label: "이벤트", path: "/event" },
+//   { img: footer4, label: "Q&A", path: "/qna" },
+//   { img: footer5, label: "마이페이지", path: "/mypage" },
 // ];
 
 

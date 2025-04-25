@@ -32,3 +32,65 @@
     font-size: 16px;
   }
   
+  .product-detail-container{
+    padding: 15px;
+  }
+
+
+   .separator-line {
+    margin: 16px 0;
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+  }
+  
+  .review-summary {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  
+  .stars-col {
+    color: #ff4d4f; 
+    font-size: 18px;
+  }
+  
+  .avg-star {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .review-count {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+  }
+  
+
+.cenP{
+    text-align: center;
+  }
+
+
+ 
+
+  .price-and-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .price-and-icon p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .price-and-icon img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    padding-right: 20px;
+  }
