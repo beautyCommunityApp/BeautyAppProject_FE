@@ -1,65 +1,34 @@
-// import "./Header.css"
+import React from "react";
+import { useNavigate } from "react-router-dom";
+// import ArrowLeft from "../../assets/images/Arrow Left.png";
+import ArrowLeft from "./../assets/images/Arrow Left.png";
+import "./../components/Header.css";
 
-// function Header ( {title, leftChild, rightChild ,closeBtn} ) {
+function Header({ title, prevPath, onClose, rightChild }) {
+  const nav = useNavigate();
 
-//     return <header className="Header">
-//         {/* <div className="header_left">{leftChild}</div>
-//         <div className="header_center">{title}</div>
-//         <div className="header_right">{rightChild}</div> */}
-// <div className="header_cente">{leftChild}</div>
-// <div className="header_leftr">{title}</div>
-//         {/* <div className="close_btn">{closeBtn}</div>  */}
-//         {/* <button className="close-btn">{closeBtn}</button> */}
+  const handleBack = () => {
+    if (prevPath) {
+      nav(prevPath);
+    } else if (onClose) {
+      onClose();
+    } else {
+      nav(-1);
+    }
+  };
 
-
-//     </header>
-
-// }
-// export default Header;
-
-// src/components/Header/Header.jsx
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-// import './Header.css';
-import "./../components/Header.css"
-
-// function Header({ title }) {
-//   const nav = useNavigate();
-
-//   function handleBack(){
-//     nav(-1); // 이전 페이지로 이동
-//     // nav("/login"); 
-
-//   } 
-
-//   return (
-//     <div className="header-wrapper">
-//       <button className="header-close-btn" onClick={handleBack}>×</button>
-//       {title && <h2 className="header-title">{title}</h2>}
-//     </div>
-//   );
-// }
-
-function Header({ title, prevPath,onClose  }) {
-    const nav = useNavigate();
-  
-    const handleBack = () => {
-      if (prevPath) {
-        nav(prevPath);
-      }else if(onClose){
-        onClose(); 
-      } else {
-        nav(-1);
-      }
-    };
-  
-    return (
-      <div className="header-wrapper">
-        <button className="header-close-btn" onClick={handleBack}>×</button>
-        {title && <h2 className="header-title">{title}</h2>}
-      </div>
-    );
-  }
-
+  return (
+    <div className="header-wrapper">
+      {/* <button className="header-close-btn" onClick={handleBack}>
+        ×
+      </button> */}
+      <button className="header-back-btn" onClick={handleBack}>
+        <img src={ArrowLeft} alt="뒤로가기" />
+      </button>
+      {title && <h2 className="header-title">{title}</h2>}
+      <div className="header-right">{rightChild}</div>
+    </div>
+  );
+}
 
 export default Header;

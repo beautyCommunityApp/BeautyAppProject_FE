@@ -1,11 +1,11 @@
 /* src/components/Header/Header.css */
-.header-wrapper {
+/* .header-wrapper {
     display: flex;
     align-items: center;
     height: 48px;
     padding: 0 16px;
     position: relative;
-    /* border-bottom: 1px solid #eee; */
+
   }
   
   .header-close-btn {
@@ -21,5 +21,45 @@
     transform: translateX(-50%);
     font-size: 16px;
     font-weight: bold;
-  }
-  
+  } */
+/* Header.css */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.header-close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  left: 16px;
+}
+
+.header-right {
+  position: absolute;
+  right: 16px;
+  font-size: 14px;
+  color: 999999;
+  cursor: pointer;
+}
+.header-back-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+}

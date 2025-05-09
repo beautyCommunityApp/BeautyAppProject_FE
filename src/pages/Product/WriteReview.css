@@ -1,172 +1,178 @@
 .write-review-page {
-    padding: 16px;
-    padding-bottom: 80px;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-  
-  .review-box {
-    border: 1px solid #f5dada;
-    padding: 12px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  
-  .review-box h4 {
-    font-size: 16px;
-    margin: 0;
-  }
-  
-  .brand-name {
-    font-size: 12px;
-    color: #999;
-  }
-  
-  .section-title {
-    margin: 12px 0 6px;
-    font-weight: 600;
-    font-size: 16px;
-  }
-  .star-rating-st .star {
-    cursor: pointer;
-    margin-right: 4px;
-    transition: color 0.3s;
-    color: #ccc;
-  }
-  
-  .star-rating-st .star.selected {
-    color: #ff4d4f;
-  }
-  
-  /* .star-rating-st {
+  padding: 16px;
+  padding-bottom: 80px;
+  background-color: white;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.review-box {
+  border: 1px solid #f5dada;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.review-box h4 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.brand-name {
+  font-size: 12px;
+  color: #999;
+}
+
+.section-title {
+  margin: 12px 0 6px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+.star-rating-st .star {
+  cursor: pointer;
+  margin-right: 4px;
+  transition: color 0.3s;
+  color: #ccc;
+  font-size: 23px;
+}
+
+.star-rating-st .star.selected {
+  color: #ff4d4f;
+}
+
+/* .star-rating-st {
     font-size: 24px;
     color: #ccc;
     margin-bottom: 10px;
   }
    */
-  .star {
-    cursor: pointer;
-    margin-right: 4px;
-    transition: color 0.3s;
-  }
-  
-  /* .star.selected {
+.star {
+  /* cursor: pointer;  홈화면에 별 커서가 되는 거 여기인가 */
+  margin-right: 4px;
+  transition: color 0.3s;
+}
+
+/* .star.selected {
     color: #ff4d4f;
   }
    */
-  textarea {
-    width: 100%;
-    height: 240px;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    margin-top: 6px;
-    box-sizing: border-box;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    margin-top: 6px;
-    box-sizing: border-box;
-  }
-  
-  .counter {
-    text-align: right;
-    font-size: 12px;
-    color: #aaa;
-    margin-bottom: 10px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 14px 0;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    color: #fff;
-    background-color: #ccc;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button.active {
-    background-color: #ff4d4f;
-  }
-  
-  .submit-button:disabled {
-    cursor: not-allowed;
-  }
-   
+textarea {
+  width: 100%;
+  height: 240px;
+  resize: none;
+  padding: 10px;
+  font-size: 14px;
+  /* border: 1px solid #ddd; */
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  margin-top: 6px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
 
-  .writeGap{
-    padding-bottom: 30px;
-  }
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  /* border: 1px solid #ddd; */
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  margin-top: 6px;
+  box-sizing: border-box;
+  height: 83px;
+  background-color: #f9f9f9;
+}
 
-  .sectionGap{
-    display: flex;
-    flex-direction: column;      /* 세로 방향 정렬 */
-    justify-content: center;     /* 세로축 기준 중앙 정렬 */
-    align-items: center;         /* 가로축 기준 중앙 정렬 */
-   
-  } 
+.counter {
+  text-align: right;
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
 
-  .product-detailsw {
-    display: flex;
-    flex-direction: column;
-  }
-  
+.submit-button {
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  color: #fff;
+  background-color: #ccc;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
 
-  
-  .product-infoW {
-    /* border: 2px solid #FFF6FB; */
-    border: none;
-    border-radius: 10px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 16px 0;
-    background-color:white;
-    cursor: pointer;
-  }.product-infow {
-    display: flex;
-    align-items: center;
-    gap: 16px; /* 이미지와 텍스트 간 간격 */
-    /* margin-bottom: 24px; */
-  }
-  
-  .product-infow img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-detailsw {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .product-detailsw h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .product-detailsw .brand-name {
-    font-size: 14px;
-    color: #7d7d7d;
-  }
+.submit-button.active {
+  background-color: #ff4d4f;
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.writeGap {
+  padding-bottom: 30px;
+}
+
+.sectionGap {
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
+  justify-content: center; /* 세로축 기준 중앙 정렬 */
+  align-items: center; /* 가로축 기준 중앙 정렬 */
+}
+
+.product-detailsw {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-infoW {
+  /* border: 2px solid #FFF6FB; */
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  background-color: white;
+  cursor: pointer;
+}
+.product-infow {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* 이미지와 텍스트 간 간격 */
+  /* margin-bottom: 24px; */
+}
+
+.product-infow img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-detailsw {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-detailsw h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-detailsw .brand-name {
+  font-size: 14px;
+  color: #7d7d7d;
+}

@@ -1,0 +1,222 @@
+/* src/pages/Search/Search.css */
+
+/* ── 검색 페이지 전체 레이아웃 ── */
+.search-search-page {
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+  min-height: 100vh;
+  padding-bottom: 80px; /* Footer 높이 + 여유 */
+}
+
+.search-search-page .search-search-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%; /* ✅ 전체 너비 보장 */
+  box-sizing: border-box;
+  flex-direction: column; /* ✅ 수직 쌓기 */
+  align-items: flex-start; /* ✅ 왼쪽 정렬 */
+  padding: 16px;
+  row-gap: 12px;
+}
+
+/* .search-search-page .search-back-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+} */
+.search-search-page .search-back-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 4px 0 0; /* ✅ 오른쪽 마진 확보 */
+  width: 32px; /* ✅ 아이콘 기준 고정 */
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-search-page .search-input-wrapper {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 24px;
+  padding: 8px 12px;
+  min-width: 0;
+  width: 100%; /* ✅ 전체 너비 */
+  /* padding: 8px 12px; */
+  width: 100%; /* 부모 안에서 꽉 차게 */
+  max-width: 100%; /* ✅ 초과하지 않도록 제한 */
+  box-sizing: border-box; /* ✅ 핵심 */
+}
+
+.search-search-page .search-input-wrapper input {
+  /* ✅ 이걸 남기고 */
+  flex: 1;
+  width: 100%;
+  max-width: 100%; /* ✅ 여기도 명시 */
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  margin-left: 8px;
+  box-sizing: border-box;
+  padding-left: 4px; /* ✅ 추가 */
+}
+/* .search-search-page .search-input-wrapper .search-input {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+} */
+
+.search-search-page .search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+/* ── 2) 빈 검색어 ── */
+.search-search-page .search-empty-state {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.3; /* 0search-search-page.3 → 0.3 으로 */
+}
+
+/* ── 3) 로딩 & 4) 결과 없음 ── */
+.search-search-page .search-loading,
+.search-search-page .search-no-result {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ── 5) 검색 결과 있음 ── */
+.search-search-page .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.search-search-page .section-header .arrow {
+  font-size: 1.25rem;
+  color: #999;
+}
+
+.search-search-page .search-product-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px;
+}
+.search-search-page .search-product-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: #fff6fb;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 0search-search-page.1 → 0.1 */
+  margin-bottom: 12px;
+  position: relative;
+}
+.search-search-page .search-product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.search-search-page .search-product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 이제 이 아래부터도 스코프 안에서만 적용됩니다 */
+.search-search-page .search-brand-name {
+  font-size: 0.875rem;
+  color: #555;
+}
+.search-search-page .search-product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 4px 0;
+}
+.search-search-page .search-product-price {
+  font-size: 0.875rem;
+  color: #888;
+}
+.search-search-page .star-rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #ff3d57;
+  margin-top: 4px;
+}
+.search-search-page .star-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 2px;
+}
+.search-search-page .star-value {
+  margin-left: 4px;
+  font-size: 0.875rem;
+  color: #f1c40f;
+}
+
+/* 별점 뱃지 */
+.search-search-page .search-star-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+/* 뱃지 안의 별 아이콘 */
+.search-search-page .star-badge-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* 뱃지 안의 숫자 */
+.search-search-page .star-badge-value {
+  margin-left: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: black;
+}
+.search-footer-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px; /* or 430px */
+  background-color: white;
+  border-top: 1px solid #eee;
+  z-index: 999;
+  height: 60px; /* Footer 높이에 맞게 조절 */
+}
