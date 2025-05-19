@@ -19,7 +19,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./../components/BannerSlider.css";
 
-import bannerImg from "./../assets/images/banner.png";
+import bannerImg from "./../assets/images/banner.svg";
 import bannerImg1 from "./../assets/images/banner1.png";
 import bannerImg2 from "./../assets/images/banner2.png";
 

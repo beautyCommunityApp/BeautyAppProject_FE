@@ -1,65 +1,93 @@
-/* src/components/Header/Header.css */
 /* .header-wrapper {
-    display: flex;
-    align-items: center;
-    height: 48px;
-    padding: 0 16px;
-    position: relative;
-
-  }
-  
-  .header-close-btn {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .header-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    font-weight: bold;
-  } */
-/* Header.css */
-.header-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background-color: white;
-  border-bottom: 1px solid #eee;
   position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
 }
 
 .header-title {
   font-size: 16px;
   font-weight: bold;
-  flex: 1;
-  text-align: center;
+  color: #121212;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.header-close-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
+.header-back-btn {
   position: absolute;
   left: 16px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+.header-right {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+} */
+
+.header-wrapper {
+  position: relative;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 제목 중앙 정렬 */
+  padding: 0 16px;
+  /* border-bottom: 1px solid #eee; */
+  background-color: #fff;
+  width: 100%; /* 전체 너비 사용 */
+  max-width: 480px; /* 모바일 기준 */
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #121212;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.header-back-btn {
+  position: absolute;
+  left: 16px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
 }
 
 .header-right {
   position: absolute;
   right: 16px;
-  font-size: 14px;
-  color: 999999;
-  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.header-back-btn {
+.header-setting-btn {
   background: none;
   border: none;
-  font-size: 24px;
+  padding: 4px;
   cursor: pointer;
-  padding: 8px;
+  color: #121212;
+}
+
+.header-back-placeholder {
+  width: 24px;
+  height: 24px;
 }

@@ -1,4 +1,4 @@
-import api from "./axiosInstance"; // 공통 axios 인스턴스
+import api from "./instance"; // 공통 axios 인스턴스
 
 // export const fetchCosmeticsByCategory = (categoryId, accessToken, page = 0) => {
 //   return api.get(`/app/api/cosmetics/categories/${categoryId}?page=${page}`, {

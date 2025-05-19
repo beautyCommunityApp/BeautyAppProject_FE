@@ -72,4 +72,19 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 20px;
+}
+.load-more-wrapper {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more-btn {
+  padding: 10px 20px;
+  background-color: #ff616d;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }

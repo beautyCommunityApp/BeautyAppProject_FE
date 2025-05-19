@@ -1,16 +1,3 @@
-// import React from "react";
-// import "./../Home/Home.css";
-// import ReviewCard from "../../components/ReviewCard";
-// import Footer from "../../components/Footer";
-// import review from "../../assets/images/review1.png";
-// import profileImageUrl from "../../assets/images/profileImageUrl.png";
-// import searchIconImg from "../../assets/images/searchIcon.png";
-// import bannerImg from "../../assets/images/banner.png";
-
-// import BannerSlider from "../../components/BannerSlider";
-// import React, { useEffect, useState } from "react";
-// import axios from "axios";
-
 // src/pages/Home/Home.jsx
 import React, { useEffect, useState } from "react";
 import "./Home.css";
@@ -21,9 +8,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import searchIconImg from "../../assets/images/searchIcon.png";
 import reviewFallbackImg from "../../assets/images/review1.png";
 import profileFallbackImg from "../../assets/images/profileImageUrl.png";
-
+import { isMockMode } from "../../utils/envUtils";
 import { fetchRecentReviews } from "../../api/reviewApi";
-
+import DetailImg from "../../assets/images/review1.png";
+import profileImageUrl from "../../assets/images/profileImageUrl.png";
 const sampleData = Array.from({ length: 5 }, (_, i) => ({
   reviewId: i + 1, // ✅ 샘플에도 reviewId 추가
   user: {
@@ -37,7 +25,7 @@ const sampleData = Array.from({ length: 5 }, (_, i) => ({
     name: "블루 아가페 포어 에센스 토너",
     brand: "더자연",
     image: reviewFallbackImg,
-    id: 1,
+    id: 1, //productId 임시로
   },
   content: {
     title: `샘플 제목${i + 1}`,
@@ -51,56 +39,87 @@ const sampleData = Array.from({ length: 5 }, (_, i) => ({
 function Home() {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(0); // ✅ 페이지 상태 추가
+  const [hasMore, setHasMore] = useState(true); // ✅ 더 불러올 데이터가 있는지
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const data = await fetchRecentReviews();
-        console.log("✅ 실시간 리뷰:", data);
-
-        if (Array.isArray(data?.result?.content)) {
-          const mappedData = data.result.content.map((item, idx) => ({
-            reviewId: idx + 1,
-            user: {
-              image:
-                item.reviewInfo.memberProfile.profileImageUrl ||
-                profileFallbackImg,
-              nickname: item.reviewInfo.memberProfile.nickname,
-              age: item.reviewInfo.memberProfile.age,
-              skin: item.reviewInfo.memberProfile.skinType,
-              gender:
-                item.reviewInfo.memberProfile.gender === "MALE" ? "남" : "여",
-            },
-            product: {
-              name: item.cosmeticInfo.cosmeticName,
-              brand: item.cosmeticInfo.brandName,
-              image: item.cosmeticInfo.cosmeticImageUrl || reviewFallbackImg,
-              id: item.cosmeticInfo.cosmeticId,
-            },
-            content: {
-              title: item.reviewInfo.oneLineReview,
-              body: item.reviewInfo.reviewComment,
-              likes: item.reviewInfo.likeCount,
-              rating: item.reviewInfo.star,
-            },
-            date: item.reviewInfo.daysAgo,
-          }));
-
-          setReviews(mappedData);
-        } else {
-          throw new Error("응답 데이터 형식 오류");
-        }
-      } catch (err) {
-        console.error("❌ 리뷰 조회 실패, 샘플로 대체", err);
-        setReviews(sampleData);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
+    fetchReviews(0); // 첫 페이지 로딩
   }, []);
+
+  const fetchReviews = async (pageNum) => {
+    console.log("fetchReviews 호출됨: page", pageNum);
+    // 개발환경에서는 무조건 샘플로 보기 (선택)
+    // if (process.env.NODE_ENV === "development")
+    if (isMockMode()) {
+      console.log("🧪 [Mock] 리뷰 목록 호출");
+      const mappedData = sampleData.map((item, idx) => ({
+        ...item,
+        reviewId: pageNum * 10 + idx + 1,
+      }));
+      setReviews(mappedData);
+      setPage(pageNum);
+      // setHasMore(false);
+      setHasMore(true);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const data = await fetchRecentReviews(pageNum); // API 호출
+
+      // 리뷰 리스트가 비어있을 경우
+      const content = data?.result?.content;
+      if (!Array.isArray(content) || content.length === 0) {
+        console.warn("⚠️ 리뷰 없음, 샘플 데이터로 대체");
+        if (pageNum === 0) {
+          setReviews(sampleData); // 첫 페이지일 경우만 샘플 출력
+          setHasMore(false);
+        }
+        return;
+      }
+
+      //  정상 응답인 경우 리뷰 리스트 매핑
+      const mappedData = content.map((item, idx) => ({
+        reviewId: pageNum * 10 + idx + 1,
+        user: {
+          image:
+            item.reviewInfo.memberProfile.profileImageUrl || profileFallbackImg,
+          nickname: item.reviewInfo.memberProfile.nickname,
+          age: item.reviewInfo.memberProfile.age,
+          skin: item.reviewInfo.memberProfile.skinType,
+          gender: item.reviewInfo.memberProfile.gender === "MALE" ? "남" : "여",
+        },
+        product: {
+          name: item.cosmeticInfo.cosmeticName,
+          brand: item.cosmeticInfo.brandName,
+          image: item.cosmeticInfo.cosmeticImageUrl || reviewFallbackImg,
+          id: item.cosmeticInfo.cosmeticId,
+        },
+        content: {
+          title: item.reviewInfo.oneLineReview,
+          body: item.reviewInfo.reviewComment,
+          likes: item.reviewInfo.likeCount,
+          rating: item.reviewInfo.star,
+        },
+        date: item.reviewInfo.daysAgo,
+      }));
+
+      setReviews((prev) => [...prev, ...mappedData]);
+      setPage(pageNum);
+      setHasMore(!data.result.last);
+    } catch (err) {
+      console.error("❌ 리뷰 API 실패 → 샘플 데이터로 대체", err);
+
+      // ✅ API 자체 실패 시도 샘플로 대체
+      if (pageNum === 0) {
+        setReviews(sampleData);
+        setHasMore(false);
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -155,6 +174,16 @@ function Home() {
             date={item.date}
           />
         ))} */}
+        {hasMore && reviews.length > 0 && (
+          <div className="load-more-wrapper">
+            <button
+              className="load-more-btn"
+              onClick={() => fetchReviews(page + 1)}
+            >
+              더보기
+            </button>
+          </div>
+        )}
       </div>
 
       <Footer />

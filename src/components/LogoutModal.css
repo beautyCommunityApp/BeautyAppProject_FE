@@ -1,0 +1,52 @@
+/* src/components/LogoutModal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(60, 60, 60, 0.5); /* 회색 반투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 20px 24px;
+  border-radius: 12px;
+  text-align: center;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-text {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn,
+.confirm-btn {
+  width: 48%;
+  padding: 8px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.confirm-btn {
+  background-color: transparent;
+  color: #ff616d; /* 강조 색상 */
+  font-weight: bold;
+}

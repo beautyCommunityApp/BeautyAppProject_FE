@@ -1,0 +1,246 @@
+/* 
+
+.mypage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #ffffff;
+}
+
+.profile-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.profile-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.profile-section p {
+  color: #7d7d7d;
+  font-size: 14px;
+}
+
+.edit-btn {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background-color: #ff616d;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.summary-section div {
+  text-align: center;
+  color: #121212;
+}
+
+.summary-section div br {
+  display: block;
+  margin-bottom: 4px;
+}
+.mypage-beauty-profile {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 24px;
+}
+
+.mypage-section-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #121212;
+}
+
+.mypage-beauty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  column-gap: 20px;
+}
+
+.mypage-beauty-item {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  align-items: center;
+}
+
+.mypage-beauty-item .label {
+  color: #7d7d7d;
+  font-weight: 500;
+}
+
+.mypage-beauty-item .value {
+  color: #121212;
+} */
+.mypage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 20px; */
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding-top: 15px;
+}
+
+.profile-section {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* margin-top: 20px; */
+  margin: 0 auto;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 20px;
+}
+
+.profile-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info .nickname {
+  font-size: 16px;
+  font-weight: bold;
+  color: #121212;
+}
+
+.profile-info .sub-info {
+  font-size: 13px;
+  color: #7d7d7d;
+}
+
+.profile-info .follow {
+  font-size: 12px;
+  color: #7d7d7d;
+  margin-top: 2px;
+}
+
+.mypage-beauty-profile {
+  margin-top: 20px;
+  width: 100%;
+  padding-left: 20px;
+}
+
+.mypage-section-title {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: #121212;
+}
+
+.mypage-beauty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10px;
+  column-gap: 16px;
+  font-size: 13px;
+}
+
+.mypage-beauty-item {
+  display: flex;
+  gap: 4px;
+}
+
+.mypage-beauty-item .label {
+  color: #7d7d7d;
+  font-weight: 500;
+}
+
+.mypage-beauty-item .value {
+  color: #121212;
+}
+
+.edit-btn {
+  /* margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  color: #ff616d;
+  border: 1px solid #ff616d;
+  border-radius: 999px;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  max-width: 480px;
+  text-align: center; */
+
+  padding: 10px 24px;
+  background-color: #fff;
+  color: #ff616d;
+  border: 1px solid #ff616d;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 480px; /* ✅ 적당한 길이만 차지 */
+  text-align: center;
+}
+
+.summary-section {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #121212;
+}
+
+.summary-section div {
+  text-align: center;
+  cursor: pointer;
+}
+.mypage-editBtn-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+
+  padding: 20px 20px;
+  padding-left: 20px;
+}

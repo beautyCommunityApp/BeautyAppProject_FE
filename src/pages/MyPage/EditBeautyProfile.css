@@ -1,0 +1,107 @@
+/* src/pages/MyPage/EditBeautyProfile.css */
+
+.edit-beauty-container {
+  padding: 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.edit-beauty-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.edit-beauty-section label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 4px;
+}
+
+.edit-beauty-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.edit-beauty-option {
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+  font-size: 14px;
+  cursor: pointer;
+  color: #121212;
+}
+
+.edit-beauty-option.selected {
+  background-color: #ff616d;
+  color: #fff;
+  border-color: #ff616d;
+}
+
+.edit-beauty-toggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 스위치 토글 UI */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 26px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff616d;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.edit-beauty-submit {
+  background-color: #ff616d;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+}

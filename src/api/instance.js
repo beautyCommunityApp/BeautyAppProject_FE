@@ -9,7 +9,8 @@ import axios from "axios";
 // });
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080/app/api", // API 공통 prefix
+  // baseURL: "http://localhost:8080/app/api", // API 공통 prefix
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   withCredentials: true, // 로그인 쿠키 포함 등
   headers: {
     "Content-Type": "application/json",

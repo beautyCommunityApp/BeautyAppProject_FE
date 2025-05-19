@@ -29,12 +29,24 @@ import instance from "./instance"; // 공통 axios 인스턴스 사용
  * @param {string | number} productId - 조회할 화장품 ID
  * @returns {Promise<object>} - 백엔드에서 받은 제품 상세 데이터
  */
+// export const fetchProductDetail = async (productId) => {
+//   try {
+//     const res = await instance.get(`/cosmetics/${productId}`);
+//     console.log("res", res.data);
+//     return res.data; // 여기서 .result는 사용하는 쪽에서 처리
+//   } catch (err) {
+//     console.error(`❌ fetchProductDetail 실패 (productId=${productId})`, err);
+//     throw err; // 호출한 쪽에서 처리할 수 있게 다시 throw
+//   }
+// };
+
 export const fetchProductDetail = async (productId) => {
   try {
     const res = await instance.get(`/cosmetics/${productId}`);
-    return res.data; // 여기서 .result는 사용하는 쪽에서 처리
+    console.log("res", res.data);
+    return res.data;
   } catch (err) {
     console.error(`❌ fetchProductDetail 실패 (productId=${productId})`, err);
-    throw err; // 호출한 쪽에서 처리할 수 있게 다시 throw
+    throw err;
   }
 };

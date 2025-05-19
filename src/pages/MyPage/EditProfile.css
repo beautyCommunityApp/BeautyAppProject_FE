@@ -1,0 +1,143 @@
+.edit-profile-container {
+  padding: 0 20px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.edit-profile-form label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #121212;
+}
+
+.edit-profile-form input[type="text"],
+.edit-profile-form select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.edit-profile-gender {
+  display: flex;
+  gap: 12px;
+}
+
+.edit-profile-gender button {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 14px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #7d7d7d;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-profile-gender button.selected {
+  background-color: #ff616d;
+  color: #fff;
+  border: 1px solid #ff616d;
+}
+
+.edit-profile-birthday {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-profile-birthday select {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.edit-profile-submit {
+  margin-top: 32px;
+  background-color: #ff616d;
+  color: white;
+  padding: 14px 0;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+/**이미지부분**/
+.edit-profile-image-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.edit-profile-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.edit-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f0f0f0;
+}
+
+.edit-profile-camera-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: white;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-camera-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.edit-profile-birthday-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-profile-birthday-year select {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.edit-profile-birthday-month-day {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-profile-birthday-month-day select {
+  flex: 1;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}

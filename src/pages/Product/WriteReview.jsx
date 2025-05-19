@@ -9,6 +9,7 @@ import DetailImg from "../../assets/images/review1.png";
 import saveIcon from "../../assets/images/save-icon.png"; // 실제 경로에 맞게 수정
 import { submitReview } from "../../api/reviewApi";
 import { fetchProductDetail } from "../../api/productApi";
+import { isMockMode } from "../../utils/envUtils";
 
 function WriteReview() {
   const { id } = useParams();
@@ -26,8 +27,10 @@ function WriteReview() {
 
   // 페이지 진입 시 제품 상세 정보 불러오기
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") {
+    // if (process.env.NODE_ENV === "development")
+    if (isMockMode()) {
       // 개발환경에서는 mock 데이터 사용
+      console.log("🧪 [Mock] 리뷰 데이터 사용 중");
       setProduct({
         imageUrl: DetailImg,
         name: "블루 아가베 포어 에센스 토너",
@@ -59,7 +62,7 @@ function WriteReview() {
     // 개발 환경일 경우 - API 호출 없이 이동만
     if (process.env.NODE_ENV === "development") {
       console.log("💡 로컬 테스트용 리뷰 등록 완료!");
-      navigate(`/product/${id}/reviews`);
+      navigate(`/home/product/${id}/reviews`);
       return;
     }
 
@@ -68,7 +71,7 @@ function WriteReview() {
       const data = await submitReview(id, { star, content, oneLineReview });
 
       if (data.isSuccess) {
-        navigate(`/product/${id}/reviews`);
+        navigate(`/home/product/${id}/reviews`);
       } else {
         alert(data.responseMessage || "리뷰 등록에 실패했습니다.");
       }
@@ -105,7 +108,7 @@ function WriteReview() {
         {/* <Header title="리뷰 작성"  prevPath={`/product/${id}`} /> */}
         {/* 상단 헤더 - 뒤로가기 + 타이틀 + 우측 임시저장 아이콘 */}
         <Header
-          prevPath={`/product/${id}`}
+          prevPath={`/home/product/${id}`}
           title="리뷰 작성"
           rightChild={
             <img

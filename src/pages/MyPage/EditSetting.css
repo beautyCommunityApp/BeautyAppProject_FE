@@ -1,0 +1,35 @@
+/* src/pages/MyPage/EditSetting.css */
+
+.edit-setting-container {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.edit-setting-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.edit-setting-tabs button {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 14px;
+  background: none;
+  border: none;
+  color: #7d7d7d;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.edit-setting-tabs button.active {
+  font-weight: bold;
+  color: #121212;
+  border-bottom: 2px solid #ff616d;
+}
+
+.edit-setting-content {
+  padding: 20px;
+}

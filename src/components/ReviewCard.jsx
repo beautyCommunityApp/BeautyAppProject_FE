@@ -1,13 +1,3 @@
-// // src/components/ReviewCard.jsx
-// import React, { useState } from "react";
-// // import "../ReviewCard.css";
-// import { useNavigate } from "react-router-dom";
-// import likeOn from "./../assets/images/like_on.png";
-// import likeOff from "./../assets/images/like_off.png";
-// // import likeOff from "../../assets/images/like_off.png";
-// import "./../components/ReviewCard.css";
-// import api from "../../api/axiosInstance"; // ✅ 공통 axios 인스턴스
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // 좋아요 toggle API 함수
@@ -19,8 +9,16 @@ import "./../components/ReviewCard.css";
 
 //	reviewId: 좋아요 API 요청 시 필요한 리뷰 ID  ,user :작성자 정보: 프로필 이미지, 나이, 성별, 피부타입 포함 객체
 //product :리뷰와 연결된 제품 정보 ,content :리뷰 내용 및 별점, 한줄평, 본문, 좋아요 수 등
-//date :리뷰 작성일 (ex: 1일 전)
-function ReviewCard({ reviewId, user, product, content, date }) {
+//date :리뷰 작성일 (ex: 1일 전) //showEdit은 true일 때만 수정 버튼 보이게 , onEdit은 버튼 클릭 시 실행할 함수(모달 열기, 수정 페이지 이동 등).
+function ReviewCard({
+  reviewId,
+  user,
+  product,
+  content,
+  date,
+  showEdit = false,
+  onEditClick,
+}) {
   const nav = useNavigate();
 
   // 좋아요 상태 및 개수 관리
@@ -63,7 +61,19 @@ function ReviewCard({ reviewId, user, product, content, date }) {
             {user.age}세 ・ {user.skin} ・ {user.gender}
           </span>
         </div>
-        <span className="review-date">{date}</span>
+        {/* <span className="review-date">{date}</span> */}
+
+        <div className="review-date-edit">
+          <span className="review-date">{date}</span>
+          {showEdit && (
+            <button
+              className="edit-button"
+              onClick={() => onEditClick(reviewId)}
+            >
+              수정
+            </button>
+          )}
+        </div>
       </div>
 
       {/* 별점 추가 */}
@@ -73,7 +83,8 @@ function ReviewCard({ reviewId, user, product, content, date }) {
       {/* <div className="product-info" onClick={() => nav(`/product/${1}`)}> */}
       <div
         className="product-info"
-        onClick={() => nav(`/product/${product.id}`)}
+        // onClick={() => nav(`/product/${product.id}`)}
+        onClick={() => nav(`/home/product/${product.id}`)}
       >
         <img
           src={product.image}

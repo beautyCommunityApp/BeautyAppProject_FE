@@ -11,6 +11,7 @@ import searchIconImg from "../../assets/images/searchIcon.png";
 // import off_h from "../../assets/images/off_h.png";
 // import on_h from "../../assets/images/on_h.png";
 import { fetchReviewsByCosmeticId } from "../../api/reviewApi";
+import { isMockMode } from "../../utils/envUtils";
 
 const mockData = {
   isSuccess: true,
@@ -55,58 +56,119 @@ function ProductReviewList() {
   });
 
   const navigate = useNavigate();
+  const [page, setPage] = useState(0); // 페이지 번호
+  const [hasMore, setHasMore] = useState(true); // 다음 페이지가 있는지 여부
 
   // const [isLiked, setIsLiked] = useState(false);
 
   console.log("cosmeticId: " + cosmeticId);
-
   useEffect(() => {
-    const fetchReviews = async () => {
-      if (process.env.NODE_ENV === "development") {
-        // ✅ mock 데이터 분기 그대로 유지
-
-        console.log(" [개발 환경] mockData 사용 중");
-        const mapped = mockData.result.content.map((review) => ({
-          memberProfile: review.reviewInfo.memberProfile,
-          daysAgo: review.reviewInfo.daysAgo,
-          star: review.reviewInfo.star,
-          oneLineReview: review.reviewInfo.oneLineReview,
-          reviewComment: review.reviewInfo.reviewComment,
-          likeCount: review.reviewInfo.likeCount,
-          product: {
-            image: review.cosmeticInfo.cosmeticImageUrl,
-            name: review.cosmeticInfo.cosmeticName,
-            brand: review.cosmeticInfo.brandName,
-          },
-        }));
-        setReviews(mapped);
-        setStats(mockData.result.stats);
-      } else {
-        try {
-          const data = await fetchReviewsByCosmeticId(cosmeticId);
-          const mapped = data.result.content.map((review) => ({
-            memberProfile: review.memberProfile,
-            daysAgo: review.daysAgo,
-            star: review.star,
-            oneLineReview: review.oneLineReview,
-            reviewComment: review.reviewComment,
-            likeCount: review.likeCount,
-            product: {
-              image: DetailImg, // 리뷰에 제품 정보가 없을 경우 기본 이미지
-              name: "", // 필요시 props로 받아서 처리
-              brand: "",
-            },
-          }));
-          setReviews(mapped);
-          setStats(data.result.stats);
-        } catch (error) {
-          console.error("❌ 리뷰 불러오기 실패", error);
-        }
-      }
-    };
-
-    fetchReviews();
+    fetchReviews(0);
   }, [cosmeticId]);
+
+  const fetchReviews = async (pageNum) => {
+    console.log("📢 fetchReviews 호출됨: page", pageNum);
+    // if (process.env.NODE_ENV === "development")
+    if (isMockMode()) {
+      // console.log(" [개발 환경] mockData 사용 중");
+      console.log("🧪 [Mock] 리뷰 데이터 사용 중");
+      const mapped = mockData.result.content.map((review) => ({
+        memberProfile: review.reviewInfo.memberProfile,
+        daysAgo: review.reviewInfo.daysAgo,
+        star: review.reviewInfo.star,
+        oneLineReview: review.reviewInfo.oneLineReview,
+        reviewComment: review.reviewInfo.reviewComment,
+        likeCount: review.reviewInfo.likeCount,
+        product: {
+          image: review.cosmeticInfo.cosmeticImageUrl,
+          name: review.cosmeticInfo.cosmeticName,
+          brand: review.cosmeticInfo.brandName,
+        },
+      }));
+      setReviews(mapped);
+      setStats(mockData.result.stats);
+      // setHasMore(false); // 샘플 데이터는 더보기 없음
+      setHasMore(true); // 🔥 강제로 버튼 보이게!
+      return;
+    }
+
+    try {
+      const data = await fetchReviewsByCosmeticId(cosmeticId, pageNum); // ✅ page 넘기기
+      const mapped = data.result.content.map((review) => ({
+        memberProfile: review.memberProfile,
+        daysAgo: review.daysAgo,
+        star: review.star,
+        oneLineReview: review.oneLineReview,
+        reviewComment: review.reviewComment,
+        likeCount: review.likeCount,
+        product: {
+          image: DetailImg,
+          name: "",
+          brand: "", // 필요시 보완
+        },
+      }));
+
+      if (pageNum === 0) {
+        setReviews(mapped);
+      } else {
+        setReviews((prev) => [...prev, ...mapped]);
+      }
+
+      setStats(data.result.stats);
+      setPage(pageNum);
+      setHasMore(!data.result.last); // ✅ 마지막 페이지 판단
+    } catch (error) {
+      console.error("❌ 리뷰 불러오기 실패", error);
+    }
+  };
+
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     if (process.env.NODE_ENV === "development") {
+  //       // ✅ mock 데이터 분기 그대로 유지
+
+  //       console.log(" [개발 환경] mockData 사용 중");
+  //       const mapped = mockData.result.content.map((review) => ({
+  //         memberProfile: review.reviewInfo.memberProfile,
+  //         daysAgo: review.reviewInfo.daysAgo,
+  //         star: review.reviewInfo.star,
+  //         oneLineReview: review.reviewInfo.oneLineReview,
+  //         reviewComment: review.reviewInfo.reviewComment,
+  //         likeCount: review.reviewInfo.likeCount,
+  //         product: {
+  //           image: review.cosmeticInfo.cosmeticImageUrl,
+  //           name: review.cosmeticInfo.cosmeticName,
+  //           brand: review.cosmeticInfo.brandName,
+  //         },
+  //       }));
+  //       setReviews(mapped);
+  //       setStats(mockData.result.stats);
+  //     } else {
+  //       try {
+  //         const data = await fetchReviewsByCosmeticId(cosmeticId);
+  //         const mapped = data.result.content.map((review) => ({
+  //           memberProfile: review.memberProfile,
+  //           daysAgo: review.daysAgo,
+  //           star: review.star,
+  //           oneLineReview: review.oneLineReview,
+  //           reviewComment: review.reviewComment,
+  //           likeCount: review.likeCount,
+  //           product: {
+  //             image: DetailImg, // 리뷰에 제품 정보가 없을 경우 기본 이미지
+  //             name: "", // 필요시 props로 받아서 처리
+  //             brand: "",
+  //           },
+  //         }));
+  //         setReviews(mapped);
+  //         setStats(data.result.stats);
+  //       } catch (error) {
+  //         console.error("❌ 리뷰 불러오기 실패", error);
+  //       }
+  //     }
+  //   };
+
+  //   fetchReviews();
+  // }, [cosmeticId]);
 
   const totalReviews = stats.countByStars.reduce((acc, cur) => acc + cur, 0);
   console.log("⭐ stats", stats); // 모든 별점의 리뷰 개수를 합한 총 리뷰 수
@@ -238,10 +300,32 @@ function ProductReviewList() {
           />
         ))}
 
+        {hasMore && reviews.length > 0 && (
+          <div className="load-more-wrapper">
+            {/* <button
+              className="load-more-btn"
+              onClick={() => fetchReviews(page + 1)}
+            >
+              더보기
+            </button> */}
+
+            <button
+              className="load-more-btn"
+              onClick={() => {
+                const nextPage = page + 1;
+                setPage(nextPage); // 💡 상태를 미리 갱신하고
+                fetchReviews(nextPage); // 그 값을 넘겨서 호출
+              }}
+            >
+              더보기
+            </button>
+          </div>
+        )}
+
         {/* 하단 리뷰 작성 버튼 */}
         <div className="review-write-bottom">
           <button
-            onClick={() => navigate(`/product/${cosmeticId}/write-review`)}
+            onClick={() => navigate(`/home/product/${cosmeticId}/write-review`)}
           >
             리뷰 작성
           </button>
