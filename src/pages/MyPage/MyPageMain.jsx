@@ -77,7 +77,7 @@ function MyPageMain() {
             <div className="sub-info">
               {profile.age}세 | {profile.gender === "MALE" ? "남" : "여"}
             </div>
-            <div className="follow">팔로워 0 팔로잉 0</div>
+            {/* <div className="follow">팔로워 0 팔로잉 0</div> */}
           </div>
         </div>
 
@@ -113,8 +113,8 @@ function MyPageMain() {
             <br />
             {reviewCount}
           </div>
-          <div>
-            관심 아이템
+          <div onClick={() => navigate("/mypage/scrap-articles")}>
+            관심 아티클
             <br />
             {scrapCount}
           </div>

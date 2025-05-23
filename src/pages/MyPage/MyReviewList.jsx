@@ -18,6 +18,9 @@ function MyReviewList() {
   const [selectedReviewId, setSelectedReviewId] = useState(null);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const navigate = useNavigate();
+
+  const [sortOption, setSortOption] = useState("latest");
+
   useEffect(() => {
     fetchMyReviews()
       .then((res) => {
@@ -80,13 +83,31 @@ function MyReviewList() {
   };
 
   if (loading) return <div>로딩 중...</div>;
-
+  const sortedReviews = [...reviews].sort((a, b) => {
+    if (sortOption === "latest") {
+      return b.reviewInfo.daysAgo.localeCompare(a.reviewInfo.daysAgo); // 최근 먼저
+    } else if (sortOption === "star") {
+      return b.reviewInfo.star - a.reviewInfo.star; // 별점 높은 순
+    }
+    return 0;
+  });
   return (
     <div className="my-review-list-container">
       <Header title="나의 리뷰" />
 
       <div className="review-header">
-        <span className="sort">최신순 ▼</span>
+        <span className="sort"></span>
+        {/* <span className="sort">최신순 ▼</span> */}
+        {/* <select
+          className="sort"
+          // className="sort-select"
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+        >
+          <option value="latest">최신순</option>
+          <option value="star">별점 높은순</option>
+        </select> */}
+
         <span className="count">
           총 <span className="highlight">{reviews.length}</span>건
         </span>
@@ -99,7 +120,8 @@ function MyReviewList() {
         </div>
       ) : (
         <div className="review-list">
-          {reviews.map(({ cosmeticInfo, reviewInfo }, index) => (
+          {/* {reviews.map(({ cosmeticInfo, reviewInfo }, index) => ( */}
+          {sortedReviews.map(({ cosmeticInfo, reviewInfo }, index) => (
             <ReviewCard
               key={index}
               reviewId={index}

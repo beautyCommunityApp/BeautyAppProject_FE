@@ -235,3 +235,9 @@
 .sheet-actions button:first-child {
   border-top: none;
 }
+.sort-select {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  font-size: 14px;
+}

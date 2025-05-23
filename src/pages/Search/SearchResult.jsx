@@ -10,8 +10,11 @@ import ArrowLeftImg from "../../assets/images/Arrow Left.png";
 import "./Search.css";
 import Footer from "../../components/Footer";
 
+import { isMockMode } from "../../utils/envUtils";
+
 const mockProducts = [
   {
+    id: 1, // 👉 여기에 id 추가
     brandInfo: { name: "다자연" },
     reviewStatistics: { avgStar: 4.5 },
     imageUrl: mockDataImg,
@@ -20,6 +23,7 @@ const mockProducts = [
     capacity: 200,
   },
   {
+    id: 1, // 👉 여기에 id 추가
     brandInfo: { name: "다자연" },
     reviewStatistics: { avgStar: 4.0 },
     imageUrl: mockDataImg,
@@ -61,7 +65,6 @@ export default function SearchResult() {
     setLoading(true);
     setError("");
 
-    // === [공통] 카테고리명 → ID 매핑 ===
     const categoryMap = {
       토너: 1,
       에센스: 2,
@@ -83,29 +86,29 @@ export default function SearchResult() {
       샴푸: 18,
       컨디셔너: 19,
     };
+
     const catId = categoryMap[debouncedTerm];
 
-    // === [테스트용] 목데이터 필터링 ===
-    // ✅ 백엔드 연결 시 이 블록을 주석 처리하세요
-    const filtered = mockProducts.filter(
-      (p) =>
-        p.name.includes(debouncedTerm) ||
-        p.brandInfo.name.includes(debouncedTerm)
-    );
-    setProducts(filtered);
-    setLoading(false);
-    return;
+    if (isMockMode()) {
+      // ✅ 개발용 mock 처리
+      const filtered = mockProducts.filter(
+        (p) =>
+          p.name.includes(debouncedTerm) ||
+          p.brandInfo.name.includes(debouncedTerm)
+      );
+      setProducts(filtered);
+      setLoading(false);
+      return;
+    }
 
-    /*
-    // ✅ 백엔드 연결 시 이 아래 주석을 해제하세요
-  
+    // ✅ 운영용 API 처리
     if (!catId) {
       setProducts([]);
       setError("❌ 해당 키워드는 카테고리와 일치하지 않아요.");
       setLoading(false);
       return;
     }
-  
+
     const token = localStorage.getItem("accessToken");
     if (!token) {
       setProducts([]);
@@ -113,24 +116,25 @@ export default function SearchResult() {
       setLoading(false);
       return;
     }
-  
-    fetchCosmeticsByCategory(catId, token, 0)
-      .then((res) => {
+
+    const fetchData = async () => {
+      try {
+        const res = await fetchCosmeticsByCategory(catId, token, 0);
         if (res.data.isSuccess) {
           setProducts(res.data.result.content);
         } else {
           setError("⚠️ 데이터 요청 실패: " + res.data.responseMessage);
           setProducts([]);
         }
-      })
-      .catch((err) => {
+      } catch (err) {
         setError("🚨 서버 오류: " + (err.response?.status || "Unknown"));
         setProducts([]);
-      })
-      .finally(() => {
+      } finally {
         setLoading(false);
-      });
-    */
+      }
+    };
+
+    fetchData();
   }, [debouncedTerm]);
   {
     error && (
@@ -192,7 +196,11 @@ export default function SearchResult() {
             </div>
             <div className="search-product-list">
               {products.map((item, idx) => (
-                <div key={idx} className="search-product-card">
+                <div
+                  key={idx}
+                  className="search-product-card"
+                  onClick={() => navigate(`/home/product/${item.id}`)}
+                >
                   <div className="search-star-badge">
                     <img src={StarR} alt="별점" className="star-badge-icon" />
                     <span className="star-badge-value">

@@ -3,8 +3,15 @@
   margin: 0 auto;
   padding: 0 20px 100px;
   background-color: #fff;
-}
 
+  flex-grow: 1;
+  padding-bottom: 20px; /* 여유 */
+}
+.article-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 화면 전체 높이 */
+}
 .title {
   font-size: 20px;
   font-weight: bold;
@@ -67,4 +74,88 @@
 .article-tag-label {
   font-size: 12px;
   color: #7d7d7d;
+}
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 16px;
+}
+
+.logo {
+  font-family: "Coustard", serif;
+  font-size: 20px;
+
+  /* 그라데이션 텍스트 */
+  background: linear-gradient(90deg, #ff616d, #ebd4f0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* 렌더링 최적화 */
+  text-align: left;
+  margin: 0;
+  display: block;
+
+  /* 추가 */
+  line-height: 1.2;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.article-content {
+  padding: 12px;
+}
+
+.article-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.article-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #121212;
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-tag-label {
+  font-size: 11px;
+  padding: 4px 10px;
+  background-color: #f2f2f2;
+  color: #7d7d7d;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.article-subtitle {
+  font-size: 12px;
+  color: #7d7d7d;
+  margin-top: 6px;
+}
+
+.article-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.article-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.new-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 36px; /* 또는 적절한 크기로 */
+  height: auto;
+  z-index: 1;
 }

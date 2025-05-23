@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import saveIcon from "../../assets/images/save-icon.png";
 import { updateReview } from "../../api/reviewApi";
 import DetailImg from "../../assets/images/review1.png";
+import "./../Mypage/EditReview.css";
 
 function EditReview() {
   const { reviewId } = useParams();

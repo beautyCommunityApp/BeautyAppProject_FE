@@ -138,6 +138,28 @@ export const fetchMyReviews = async () => {
               likeCount: 21,
             },
           },
+          {
+            cosmeticInfo: {
+              brandName: "다자연1",
+              cosmeticName: "블루 아가베 포어 에센스 토너1",
+              cosmeticImageUrl: DetailImg,
+            },
+            reviewInfo: {
+              memberProfile: {
+                nickname: "우장산너구리1",
+                age: 24,
+                gender: "MALE",
+                skinType: "복합성",
+                profileImageUrl: profileImageUrl,
+              },
+              daysAgo: "0일전",
+              star: 5,
+              oneLineReview: "정말 좋아요",
+              reviewComment:
+                "촉촉하고 향도 좋아요. 자극 없이 잘 맞아요. 스킨케어 첫 단계로 매일 사용 중입니다.",
+              likeCount: 21,
+            },
+          },
         ],
         pageNumber: 0,
         last: true,
@@ -157,13 +179,13 @@ export const fetchMyReviews = async () => {
 
 //삭제
 export const deleteReview = (reviewId) => {
-  return instance.delete(`/app/reviews/${reviewId}`);
+  return instance.delete(`/reviews/${reviewId}`);
 };
 
 //리뷰수정
 export const updateReview = async (reviewId, payload) => {
   try {
-    const res = await instance.patch(`/app/reviews/${reviewId}`, payload);
+    const res = await instance.patch(`/reviews/${reviewId}`, payload);
     return res.data;
   } catch (err) {
     console.error("❌ 리뷰 수정 실패:", err);

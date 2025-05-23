@@ -1,0 +1,120 @@
+.event-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.event-page {
+  padding: 16px;
+  font-family: "Pretendard", sans-serif;
+
+  flex: 1;
+}
+
+.event-tabs {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.event-tab {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 12px;
+  color: #a0a0a0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.event-tab.active {
+  color: #121212;
+  font-weight: 700;
+  border-bottom: 2px solid #ff6b81;
+}
+
+.event-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.event-card {
+  background: #fdf8f8;
+  border-radius: 12px;
+  padding: 16px;
+  position: relative;
+}
+
+.event-text {
+  margin-bottom: 12px;
+}
+
+.brand {
+  font-size: 14px;
+  color: #7d7d7d;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  white-space: pre-line;
+  margin-top: 4px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #7d7d7d;
+  white-space: pre-line;
+  margin-top: 4px;
+}
+
+.period {
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.event-image {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.event-image img {
+  width: 72px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6b81;
+  color: white;
+  font-size: 12px;
+  border-radius: 12px;
+  padding: 4px 8px;
+}
+
+.event-button {
+  width: 100%;
+  margin-top: 12px;
+  background-color: #ff6b81;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 0;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.my-event-message {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #121212;
+}

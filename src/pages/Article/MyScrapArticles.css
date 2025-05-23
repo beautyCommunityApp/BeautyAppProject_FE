@@ -1,0 +1,38 @@
+.scrap-articles-container {
+  padding-bottom: 60px;
+}
+
+.scrap-article-list {
+  padding: 16px;
+}
+
+.scrap-article-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.article-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.article-info {
+  margin-top: 8px;
+}
+
+.article-title {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.article-tag {
+  color: gray;
+  font-size: 12px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px 0;
+  color: #999;
+}

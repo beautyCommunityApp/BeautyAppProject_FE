@@ -11,8 +11,8 @@ import { updateBeautyProfile } from "../../api/updateBeautyProfile";
 import { fetchMyPage } from "../../api/memberApi";
 
 // 뷰티 프로필 선택 옵션 리스트 정의
-const scalpOptions = ["건성두피", "지성두피", "민감성두피"];
-const hairOptions = ["건성모", "지성모", "손상모", "곱슬모"];
+const scalpOptions = ["건성두피", "지성두피", "민감성두피", "트러블두피"];
+const hairOptions = ["건성모", "지성모", "손상모", "탈모"];
 const colorOptions = ["봄웜톤", "여름쿨톤", "가을웜톤", "겨울쿨톤"];
 
 function EditBeautyProfile() {

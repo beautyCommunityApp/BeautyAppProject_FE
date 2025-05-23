@@ -87,7 +87,7 @@ export async function updateUserProfile(data) {
   }
 
   try {
-    const res = await api.patch("/app/api/members", data);
+    const res = await api.patch("/members", data);
     return res.data;
   } catch (err) {
     console.error("❌ 사용자 프로필 업데이트 실패:", err);
@@ -102,7 +102,7 @@ export async function updateBeautyProfile(data) {
   }
 
   try {
-    const res = await api.patch("/app/api/members/beauty-info", data);
+    const res = await api.patch("/members/beauty-info", data);
     return res.data;
   } catch (err) {
     console.error("❌ 뷰티 프로필 업데이트 실패:", err);

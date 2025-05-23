@@ -11,6 +11,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import footer1Active from "../assets/images/PFooter1.svg";
 import footer2Active from "../assets/images/PFooter2.svg";
 import footer5Active from "../assets/images/PFooter5.svg";
+import footer3Active from "../assets/images/PFooter3.svg";
 
 // function Footer() {
 //   // Footer 내부
@@ -56,11 +57,11 @@ function Footer() {
     {
       defaultImg: footer2,
       activeImg: footer2Active,
-      path: "/articles",
+      path: "/article",
     },
     {
       defaultImg: footer3,
-      activeImg: footer1Active,
+      activeImg: footer3Active,
       path: "/event",
     },
     {
