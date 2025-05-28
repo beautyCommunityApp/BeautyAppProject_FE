@@ -12,6 +12,7 @@ import footer1Active from "../assets/images/PFooter1.svg";
 import footer2Active from "../assets/images/PFooter2.svg";
 import footer5Active from "../assets/images/PFooter5.svg";
 import footer3Active from "../assets/images/PFooter3.svg";
+import footer4Active from "../assets/images/PFooter4.svg";
 
 // function Footer() {
 //   // Footer 내부
@@ -57,7 +58,7 @@ function Footer() {
     {
       defaultImg: footer2,
       activeImg: footer2Active,
-      path: "/article",
+      path: "/articles",
     },
     {
       defaultImg: footer3,
@@ -66,7 +67,7 @@ function Footer() {
     },
     {
       defaultImg: footer4,
-      activeImg: footer1Active,
+      activeImg: footer4Active,
       path: "/qna",
     },
     {

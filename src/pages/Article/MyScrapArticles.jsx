@@ -7,6 +7,7 @@ import { fetchScrapArticles } from "../../api/articleApi";
 import "./MyScrapArticles.css";
 import placeholderImage from "../../assets/images/article1.png"; // 예시 이미지
 
+//마이페이지 관심아티클 부분
 function MyScrapArticles() {
   const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
@@ -24,37 +25,33 @@ function MyScrapArticles() {
         console.error("API 에러", err);
       });
   }, []);
-
   return (
     <div className="scrap-articles-container">
       <Header title="관심 아티클" />
-      <div className="scrap-article-list">
-        {articles.length === 0 ? (
-          <div className="empty">스크랩한 아티클이 없습니다.</div>
-        ) : (
-          articles.map((article, index) => (
-            <div className="scrap-article-card" key={index}>
-              <img
-                src={article.articleImageUrl || placeholderImage}
-                alt={article.articleName}
-                className="article-image"
-              />
-              {/* <div className="article-info">
-                <div className="article-title">{article.articleName}</div>
-                <div className="article-tag">{article.articleTag}</div>
-                <span className="article-tag-label">{article.articleTag}</span>
-              </div> */}
-              <div className="article-content">
-                <div className="article-title-row">
-                  <p className="article-title">{article.articleName}</p>
-                  <span className="article-tag-label">
-                    {article.articleTag}
-                  </span>
+      <div className="scrap-articles-main">
+        <div className="scrap-article-list">
+          {articles.length === 0 ? (
+            <div className="empty">스크랩한 아티클이 없습니다.</div>
+          ) : (
+            articles.map((article, index) => (
+              <div className="scrap-article-card" key={index}>
+                <img
+                  src={article.articleImageUrl || placeholderImage}
+                  alt={article.articleName}
+                  className="article-image"
+                />
+                <div className="article-content">
+                  <div className="article-title-row">
+                    <p className="article-title">{article.articleName}</p>
+                    <span className="article-tag-label">
+                      {article.articleTag}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
-        )}
+            ))
+          )}
+        </div>
       </div>
       <Footer />
     </div>

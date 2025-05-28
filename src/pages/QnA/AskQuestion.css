@@ -1,0 +1,176 @@
+.ask-question-container {
+  background-color: #fff;
+  min-height: 100vh;
+  /* padding-bottom: 80px; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fff;
+}
+.ask-question-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px; /* 하단 여백 */
+}
+.ask-form {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카테고리 인풋 (비활성 input처럼) */
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.form-field input {
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #7d7d7d;
+  width: 100%;
+  padding-right: 16px;
+  cursor: pointer;
+}
+
+.form-field input::placeholder {
+  color: #d0d0d0;
+}
+
+/* 제목 input */
+.title-input {
+  font-size: 16px;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #eee;
+  color: #121212;
+}
+
+.title-input::placeholder {
+  color: #d0d0d0;
+}
+
+/* 유의사항 박스 */
+.notice {
+  font-size: 13px;
+  color: #7d7d7d;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.notice strong {
+  font-weight: bold;
+  color: #121212;
+}
+.ask-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.ask-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #121212;
+}
+
+.back-btn {
+  position: absolute;
+  left: 16px;
+  font-size: 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.submit-btn {
+  position: absolute;
+  right: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: #c1c1c1;
+  cursor: default;
+}
+
+.submit-btn.active {
+  color: #121212;
+  cursor: pointer;
+}
+/* 공통 입력 영역 */
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 14px 0;
+  font-size: 15px;
+}
+
+/* 카테고리 input 모양 */
+.form-field input {
+  border: none;
+  background: none;
+  font-size: 15px;
+  width: 100%;
+  color: #7d7d7d;
+  cursor: pointer;
+}
+
+.form-field input::placeholder {
+  color: #d0d0d0;
+}
+
+/* 제목 입력창 */
+.title-input {
+  font-size: 15px;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+  color: #121212;
+}
+
+.title-input::placeholder {
+  color: #d0d0d0;
+}
+
+/* 본문 안내문구 영역 (입력 전) */
+.notice-box {
+  font-size: 14px;
+  color: #7d7d7d;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 본문 입력창 (입력 후) */
+.content-input {
+  width: 100%;
+  min-height: 140px;
+  padding: 12px 0;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  color: #121212;
+  resize: none;
+  line-height: 1.6;
+}
+.content-input::placeholder {
+  color: #c1c1c1;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}

@@ -1,0 +1,166 @@
+/* QnAList.css */
+
+.qna-container {
+  background-color: #fff;
+  /* padding-bottom: 80px; 하단 탭바 고려 */
+  min-height: 100vh; /* 화면 전체 높이 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상단 탭 필터 */
+.qna-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+
+.qna-tabs button {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 6px 14px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #7d7d7d;
+  cursor: pointer;
+}
+
+.qna-tabs button.active {
+  background-color: #ff616d;
+  color: #fff;
+  border: none;
+}
+
+/* 섹션 타이틀 */
+.qna-section-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 16px 4px;
+  color: #121212;
+}
+
+/* 질문 리스트 */
+.qna-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* 플로팅 버튼 (질문하기) */
+.floating-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 32px;
+  background-color: #ff616d;
+  color: white;
+  border: none;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: calc((100vw - 430px) / 2 + 20px); /* ✅ 오른쪽 여백 기준으로 보정 */
+}
+
+.qna-floating-btn {
+  position: fixed;
+  right: calc((100vw - 430px) / 2 + 20px); /* ✅ 오른쪽 여백 기준으로 보정 */
+  bottom: 80px;
+  right: 16px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 28px;
+  background-color: #ff616d;
+  color: white;
+  border: none;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 💡 데스크탑에서 중앙에 맞게 제한 */
+  max-width: 430px; /* iPhone 화면 너비 기준 */
+  margin: 0 auto;
+  left: auto;
+}
+
+/* QnAList.css – 추가 */
+.qna-top-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.qna-top-tabs button {
+  font-size: 16px;
+  padding: 12px;
+  color: #7d7d7d;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+}
+
+.qna-top-tabs button.active {
+  color: #121212;
+  font-weight: 700;
+}
+
+.qna-top-tabs button.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #121212;
+}
+
+/* 로그 탭 빈 화면 */
+.qna-log-empty {
+  padding: 80px 24px 0;
+  text-align: center;
+}
+
+.qna-log-text {
+  font-size: 16px;
+  color: #7d7d7d;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.qna-log-btn {
+  background-color: #fff0f2;
+  color: #ff616d;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.qna-floating-btn:active {
+  transform: scale(0.95);
+}
+
+.plus-icon {
+  margin-bottom: 2px;
+}
+.qna-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

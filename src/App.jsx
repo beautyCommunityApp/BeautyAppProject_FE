@@ -22,6 +22,8 @@ import ArticleMain from "./pages/Article/ArticleMain"; // 추가한 아티클 �
 import ArticleDetail from "./pages/Article/ArticleDetail";
 import EventListPage from "./pages/Event/EventListPage";
 import MyScrapArticles from "./pages/Article/MyScrapArticles";
+import QnAList from "./pages/QnA/QnAList";
+import AskQuestion from "./pages/QnA/AskQuestion";
 
 import Home from "./pages/Home/Home";
 
@@ -61,6 +63,9 @@ function App() {
           element={<MyScrapArticles />}
         />{" "}
         {/*마이페이지관심아티클조회화면 */}
+        {/* Q&A 라우팅 */}
+        <Route path="/qna" element={<QnAList />} />
+        <Route path="/qna/ask" element={<AskQuestion />} />
       </Routes>
     </Router>
   );

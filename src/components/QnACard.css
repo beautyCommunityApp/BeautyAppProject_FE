@@ -1,0 +1,114 @@
+.qna-card {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: white;
+}
+
+.qna-category {
+  background-color: #ffeef0;
+  color: #ff616d;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.qna-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.qna-texts {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.qna-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #121212;
+}
+
+.qna-content {
+  font-size: 14px;
+  color: #7d7d7d;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.qna-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #7d7d7d;
+}
+
+.qna-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.qna-meta img {
+  width: 16px;
+  height: 16px;
+}
+
+.qna-product-count {
+  margin-left: auto;
+  font-size: 13px;
+  color: #ff616d;
+}
+
+/* 썸네일 이미지 */
+.qna-thumbnail {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-count {
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* 작성자 */
+.qna-writer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.writer-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.writer-nickname {
+  font-size: 14px;
+  color: #121212;
+  font-weight: 500;
+}

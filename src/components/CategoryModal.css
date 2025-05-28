@@ -1,0 +1,89 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+.category-modal-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 430px;
+}
+
+.category-modal-box::before {
+  /* content: "카테고리"; */
+  font-size: 13px;
+  color: #c1c1c1;
+  font-weight: 500;
+  padding: 0 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.category-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #121212;
+}
+
+.category-container {
+  display: flex;
+  flex: 1;
+  margin-top: 32px;
+  border-top: 1px solid #eee;
+}
+
+.category-left {
+  width: 50%;
+  border-right: 1px solid #ddd;
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.category-main {
+  font-size: 15px;
+  color: #7d7d7d;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.category-main.active {
+  font-weight: bold;
+  color: #121212;
+}
+
+.category-main.active::after {
+  content: ">";
+  font-size: 13px;
+  color: #121212;
+}
+
+.category-right {
+  width: 50%;
+  padding: 16px 12px;
+  overflow-y: auto;
+}
+
+.category-sub {
+  font-size: 15px;
+  color: #121212;
+  padding: 10px 0;
+  cursor: pointer;
+}

@@ -5,6 +5,8 @@ import useDebounce from "../../hooks/useDebounce";
 import { fetchCosmeticsByCategory } from "../../api/cosmeticApi";
 import searchIcon from "../../assets/images/searchIcon.png";
 import mockDataImg from "../../assets/images/review1.png";
+import searchPImg from "../../assets/images/searchPImg.png";
+
 import StarR from "../../assets/images/StarRating.png";
 import ArrowLeftImg from "../../assets/images/Arrow Left.png";
 import "./Search.css";
@@ -23,13 +25,22 @@ const mockProducts = [
     capacity: 200,
   },
   {
-    id: 1, // 👉 여기에 id 추가
+    id: 2, // 👉 여기에 id 추가
     brandInfo: { name: "다자연" },
     reviewStatistics: { avgStar: 4.0 },
     imageUrl: mockDataImg,
     name: "토너B",
     price: 25000,
     capacity: 300,
+  },
+  {
+    id: 3, // 👉 여기에 id 추가 
+    brandInfo: { name: "라운드랩" },
+    reviewStatistics: { avgStar: 5.0 },
+    imageUrl: searchPImg,
+    name: "독도토너",
+    price: 25500,
+    capacity: 200,
   },
   // …더 추가…
 ];
