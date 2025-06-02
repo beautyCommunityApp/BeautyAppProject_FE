@@ -1,18 +1,20 @@
 import instance from "./instance";
 import { isMockMode } from "../utils/envUtils";
 
-// 🖼️ 샘플 이미지 (assets 폴더에 직접 추가해줘!)
+//  샘플 이미지 (assets 폴더에 직접 추가해줘!)
 import article1 from "../assets/images/article1.png";
 import article2 from "../assets/images/article2.png";
 import article3 from "../assets/images/article3.png";
 
 /**
- * 아티클 리스트 조회 (실제 서버 또는 개발모드)
+ * 아티클 리스트 조회
+ * - 실 서버 또는 개발용(Mock) 데이터 사용
+ * - `/articles` API 호출
  */
 export const fetchArticles = async () => {
   if (isMockMode()) {
     console.log("🧪 [Mock] fetchArticles 호출됨");
-
+    //  개발용 Mock 상세 데이터
     return {
       data: {
         isSuccess: true,
@@ -23,21 +25,21 @@ export const fetchArticles = async () => {
               articleName: "촉촉한 스킨케어 루틴 제안",
               articleTag: "#에디터찐템",
               articleImageUrl: article1,
-              createdAt: "2025-05-20T12:00:00", // ✅ 최근 (NEW 뱃지 붙을 예정)
+              createdAt: "2025-05-29T12:00:00", //  최근 (NEW 뱃지 붙을 예정)
             },
             {
               articleId: 2,
               articleName: "올해의 뷰티 트렌드 총정리",
               articleTag: "#뷰티소식",
               articleImageUrl: article2,
-              createdAt: "2025-05-10T12:00:00", // ❌ 오래됨 (NEW 없음)
+              createdAt: "2025-05-18T12:00:00", //  오래됨 (NEW 없음)
             },
             {
               articleId: 3,
               articleName: "2025 베스트셀러 TOP3 비교",
               articleTag: "#전문가꿀팁",
               articleImageUrl: article3,
-              createdAt: "2025-05-21T12:00:00", // ✅ 최근 (NEW 뱃지)
+              createdAt: "2025-05-27T12:00:00", //  최근 (NEW 뱃지)
             },
           ],
           pageNumber: 0,
@@ -48,6 +50,7 @@ export const fetchArticles = async () => {
   }
 
   try {
+    // 실제 서버에 요청
     const res = await instance.get("/articles");
     return res;
   } catch (err) {
@@ -56,20 +59,15 @@ export const fetchArticles = async () => {
   }
 };
 
-// export const fetchArticleDetail = async (articleId) => {
-//   try {
-//     const res = await instance.get(`/articles/${articleId}`);
-//     return res.data;
-//   } catch (err) {
-//     console.error("❌ 아티클 상세 조회 실패", err);
-//     throw err;
-//   }
-// };
-
+/**
+ *  아티클 상세 조회
+ * - `/articles/{articleId}` API 호출
+ * - Mock일 경우 에디터 정보와 댓글 포함된 구조 제공
+ */
 export const fetchArticleDetail = async (articleId) => {
   if (isMockMode()) {
     console.log("🧪 [Mock] fetchArticleDetail 호출됨");
-
+    // 개발용 Mock 상세 데이터
     return {
       isSuccess: true,
       result: {
@@ -123,9 +121,20 @@ export const fetchArticleDetail = async (articleId) => {
     throw err;
   }
 };
-
+// 좋아요 토글 API 호출
+export const toggleArticleLike = async (articleId) => {
+  try {
+    const res = await instance.post(`/articles/${articleId}/likes/toggle`);
+    return res.data;
+  } catch (err) {
+    console.error("❌ 좋아요 토글 API 오류", err);
+    throw err;
+  }
+};
 /**
- * 내가 스크랩한 아티클 목록 조회 현재 백엔드 api 에 없음 관심아티클 api 만들어야함
+ *  스크랩한 아티클 조회 (마이페이지용)내가 스크랩한 아티클 목록 조회 현재 백엔드 api 에 없음 관심아티클 api 만들어야함
+ * - 현재 실제 API 없음 → 나중에 백엔드 `/members/me/scraps/articles` 추가 예정
+ * - Mock 데이터 사용
  */
 export const fetchScrapArticles = async () => {
   if (isMockMode()) {
