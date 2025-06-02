@@ -1,0 +1,162 @@
+.article-detail-container {
+  padding: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.article-main-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.article-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #121212;
+  margin: 0;
+}
+
+.article-tag {
+  font-size: 12px;
+  background-color: #f2f2f2;
+  color: #7d7d7d;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.article-body {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin: 12px 0 24px;
+}
+
+.article-editor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.editor-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.editor-info .editor-credit {
+  font-size: 10px;
+  color: #aaa;
+}
+
+.editor-info .editor-name {
+  font-size: 13px;
+  color: #121212;
+  font-weight: bold;
+}
+
+.article-comments {
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.comment-count {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-item {
+  display: flex;
+  gap: 12px;
+}
+
+.comment-profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.nickname {
+  font-weight: bold;
+  font-size: 13px;
+  color: #121212;
+}
+
+.meta {
+  font-size: 11px;
+  color: #999;
+}
+
+.comment-text {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.comment-button {
+  margin-top: 24px;
+  width: 100%;
+  padding: 12px;
+  background-color: #ff616d;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+}
+.article-footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.like-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.like-count {
+  font-size: 16px;
+  color: #121212;
+}

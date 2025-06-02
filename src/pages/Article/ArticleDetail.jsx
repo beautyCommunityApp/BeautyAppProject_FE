@@ -1,54 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
-// import { fetchArticleDetail } from "../../api/articleApi";
-// import "./ArticleDetail.css";
-// import Header from "../../components/Header";
-// import Footer from "../../components/Footer";
-
-// function ArticleDetail() {
-//   const { articleId } = useParams();
-//   const [article, setArticle] = useState(null);
-
-//   useEffect(() => {
-//     const getArticle = async () => {
-//       try {
-//         const res = await fetchArticleDetail(articleId);
-//         if (res.isSuccess) {
-//           setArticle(res.result);
-//         }
-//       } catch (err) {
-//         console.error("❌ 아티클 상세 조회 실패", err);
-//       }
-//     };
-//     getArticle();
-//   }, [articleId]);
-
-//   if (!article) return <div>Loading...</div>;
-
-//   return (
-//     <>
-//       <Header />
-//       <div className="article-detail-container">
-//         <img
-//           src={article.articleImageUrl}
-//           alt={article.articleName}
-//           className="article-main-img"
-//         />
-//         <div className="article-text">
-//           <div className="article-title-row">
-//             <h2>{article.articleName}</h2>
-//             <span className="article-tag">{article.articleTag}</span>
-//           </div>
-//           <p className="article-body">{article.articleContent}</p>
-//           {/* 이 아래로는 에디터 정보, 댓글 등으로 확장 */}
-//         </div>
-//       </div>
-//       <Footer />
-//     </>
-//   );
-// }
-
-// export default ArticleDetail;
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleDetail } from "../../api/articleApi";
@@ -78,6 +27,10 @@ function ArticleDetail() {
     getArticle();
   }, [articleId]);
 
+  const articleHandleSubmit = () => {
+    alert("등록준비중입니다.");
+  };
+
   if (!article) return <div>Loading...</div>;
 
   return (
@@ -98,6 +51,7 @@ function ArticleDetail() {
 
           <p className="article-body">{article.articleContent}</p>
 
+          {/* 에디터 작성자 부분  아티클 등록한 대상자 */}
           {article.editor && (
             <div className="article-editor">
               <img
@@ -111,6 +65,21 @@ function ArticleDetail() {
               </div>
             </div>
           )}
+
+          {/* 수정 후 */}
+          {/* {article.writerName && (
+            <div className="article-editor">
+              <img
+                src="/dummy/editor.png" // 고정값 또는 기본 이미지
+                alt={`에디터 ${article.writerName}`}
+                className="editor-img"
+              />
+              <div className="editor-info">
+                <div className="editor-credit">CREDIT</div>
+                <div className="editor-name">EDITOR {article.writerName}</div>
+              </div>
+            </div>
+          )} */}
 
           {article.comments && article.comments.length > 0 && (
             <div className="article-comments">
@@ -138,7 +107,9 @@ function ArticleDetail() {
                   </li>
                 ))}
               </ul>
-              <button className="comment-button">댓글 작성</button>
+              <button className="comment-button" onClick={articleHandleSubmit}>
+                댓글 작성
+              </button>
             </div>
           )}
         </div>
