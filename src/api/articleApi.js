@@ -5,6 +5,7 @@ import { isMockMode } from "../utils/envUtils";
 import article1 from "../assets/images/article1.png";
 import article2 from "../assets/images/article2.png";
 import article3 from "../assets/images/article3.png";
+import articleImg from "../assets/images/articleImg.png";
 
 /**
  * 아티클 리스트 조회
@@ -25,14 +26,14 @@ export const fetchArticles = async () => {
               articleName: "촉촉한 스킨케어 루틴 제안",
               articleTag: "#에디터찐템",
               articleImageUrl: article1,
-              createdAt: "2025-05-29T12:00:00", //  최근 (NEW 뱃지 붙을 예정)
+              createdAt: "2025-06-10T12:00:00", //  최근 (NEW 뱃지 붙을 예정)
             },
             {
               articleId: 2,
               articleName: "올해의 뷰티 트렌드 총정리",
               articleTag: "#뷰티소식",
               articleImageUrl: article2,
-              createdAt: "2025-05-18T12:00:00", //  오래됨 (NEW 없음)
+              createdAt: "2025-06-10T12:00:00", //  오래됨 (NEW 없음)
             },
             {
               articleId: 3,
@@ -74,8 +75,9 @@ export const fetchArticleDetail = async (articleId) => {
         articleId: Number(articleId),
         articleName: "건조한 피부, 진정 깊은 보습을 만나다",
         articleTag: "#에디터찐템",
-        articleImageUrl: article1,
+        articleImageUrl: articleImg,
         articleContent: "민감한 피부를 위한 보습 루틴 소개! 겨울철 추천템!",
+
         editor: {
           name: "옐로",
           profileImageUrl: "/dummy/editor.png",
@@ -89,6 +91,7 @@ export const fetchArticleDetail = async (articleId) => {
             skinType: "복합성",
             profileImageUrl: "/dummy/profile1.png",
             text: "원래는 닥터지 오일만 썼는데 이건 진짜 촉촉하고 좋아요!",
+            daysAgo: "방금 전",
           },
           {
             id: 2,
@@ -98,6 +101,7 @@ export const fetchArticleDetail = async (articleId) => {
             skinType: "복합성",
             profileImageUrl: "/dummy/profile2.png",
             text: "정말 좋아요. 매일 아침마다 사용 중입니다.",
+            daysAgo: "방금 전",
           },
           {
             id: 3,
@@ -107,6 +111,7 @@ export const fetchArticleDetail = async (articleId) => {
             skinType: "복합성",
             profileImageUrl: "/dummy/profile3.png",
             text: "올겨울은 이 제품 하나로 버틸 수 있을 것 같아요.",
+            daysAgo: "방금 전",
           },
         ],
       },
