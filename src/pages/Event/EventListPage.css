@@ -1,4 +1,4 @@
-.event-wrapper {
+/* .event-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -117,4 +117,79 @@
   font-size: 16px;
   font-weight: bold;
   color: #121212;
+} */
+/* src/pages/Event/EventListPage.css */
+
+.event-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.event-page {
+  flex: 1;
+  padding: 20px;
+  /* padding-bottom: 80px;  */
+  padding-bottom: 100px;
+}
+
+/* 로고 + 검색 아이콘 영역 */
+.logo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  color: #ff616d;
+  font-weight: bold;
+}
+
+.search-icon img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* 탭 버튼 영역 */
+.event-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+}
+
+.event-tab {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #7d7d7d;
+  border-bottom: 2px solid transparent;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.event-tab.active {
+  color: #121212;
+  font-weight: bold;
+  border-bottom: 2px solid #ff616d;
+}
+
+/* 리스트 콘텐츠 영역 */
+.event-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* "내 이벤트" 메시지 */
+.my-event-message {
+  font-size: 15px;
+  color: #7d7d7d;
+  text-align: center;
+  padding: 20px;
 }

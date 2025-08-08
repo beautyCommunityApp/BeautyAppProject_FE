@@ -2,14 +2,22 @@ import React from "react";
 import "./QnACard.css";
 import thumbsUpIcon from "./../assets/images/thumbs-up.svg";
 import commentIcon from "./../assets/images/message-circle.svg";
-
+import { useNavigate } from "react-router-dom";
 function QnACard({ qna }) {
   const imageCount = qna.imageUrls?.length || 0;
   const hasThumbnail = imageCount > 0;
   const thumbnailUrl = qna.imageUrls?.[0] || "";
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/qna/${qna.id}`);
+  };
   return (
-    <div className="qna-card">
+    <div
+      className="qna-card"
+      onClick={handleClick}
+      style={{ cursor: "pointer" }}
+    >
       {/* 카테고리 뱃지 */}
       <div className="qna-category">{qna.category}</div>
 

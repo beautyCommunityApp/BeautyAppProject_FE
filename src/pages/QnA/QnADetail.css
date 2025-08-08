@@ -1,0 +1,155 @@
+/* QnADetail.css - 피그마 스타일 기반 */
+
+.qna-detail-container {
+  padding: 16px;
+  background: #fff;
+  min-height: 100vh;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  color: #121212;
+}
+
+/* Header */
+.qna-header-row {
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.back-btn-q {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.back-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.qna-header-category {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.category-tag {
+  font-size: 13px;
+  padding: 4px 10px;
+  background-color: #ffe4e6;
+  color: #ff5f74;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+/* Title */
+.qna-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 12px 0 6px 0;
+}
+
+/* User Info */
+.qna-user-info {
+  display: flex;
+  align-items: center;
+  margin: 8px 0 16px 0;
+  gap: 10px;
+}
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+.user-meta {
+  display: flex;
+  flex-direction: column;
+}
+.nickname {
+  font-size: 14px;
+  font-weight: 500;
+}
+.details {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Edit/Delete */
+.qna-user-info::after {
+  content: "수정  |  삭제";
+  margin-left: auto;
+  font-size: 13px;
+  color: #888;
+}
+
+/* Image */
+.qna-image img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+/* Content */
+.qna-content {
+  margin: 12px 0;
+  line-height: 1.5;
+  white-space: pre-line;
+  font-size: 15px;
+  color: #121212;
+}
+
+/* Stats */
+.qna-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #7d7d7d;
+  align-items: center;
+  padding: 8px 0 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Comments */
+
+.qna-comments {
+  padding-top: 16px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.comment-content {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #121212;
+}
+
+.comment-content strong {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Comment Input */
+.qna-comment-input-wrapper {
+  padding: 16px 0 64px 0;
+}
+.qna-comment-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #fafafa;
+  color: #121212;
+}
