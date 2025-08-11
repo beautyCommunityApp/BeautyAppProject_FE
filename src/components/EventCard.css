@@ -1,0 +1,171 @@
+/* .event-card {
+  display: flex;
+   flex-direction: column; 
+  background-color: #fff1f4;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+} */
+
+/* 
+.event-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff1f4;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  gap: 12px; 
+}
+
+.event-text {
+  margin-bottom: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  color: #7d7d7d;
+  font-size: 13px;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  white-space: pre-line;
+  margin-top: 4px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  white-space: pre-line;
+  margin-top: 4px;
+}
+
+.period {
+  font-size: 13px;
+  color: #7d7d7d;
+  margin-top: 4px;
+}
+
+.event-image {
+  position: relative;
+  align-self: flex-end;
+  width: 80px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.event-image img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff616d;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+.event-button {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #ff616d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+} */
+
+.event-card {
+  background-color: #fff1f4;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.event-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.event-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand {
+  font-size: 13px;
+  color: #7d7d7d;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  white-space: pre-line;
+  color: #121212;
+}
+
+.desc {
+  font-size: 14px;
+  color: #666;
+  white-space: pre-line;
+}
+
+.period {
+  font-size: 13px;
+  color: #7d7d7d;
+}
+
+.event-image {
+  width: 80px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.event-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ff616d;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+.event-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff616d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
